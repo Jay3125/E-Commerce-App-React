@@ -13,10 +13,12 @@ const workspaceItems: { label: PageName; icon: IconName; count?: string }[] = [
 
 type SidebarProps = {
   activePage: PageName
+  storeName: string
+  storeEmail: string
   onNavigate: (page: PageName) => void
 }
 
-export function Sidebar({ activePage, onNavigate }: SidebarProps) {
+export function Sidebar({ activePage, storeName, storeEmail, onNavigate }: SidebarProps) {
   function navButton(label: PageName, icon: IconName, count?: string) {
     return (
       <button key={label} className={`nav-item ${activePage === label ? 'active' : ''}`} aria-current={activePage === label ? 'page' : undefined} onClick={() => onNavigate(label)}>
@@ -33,8 +35,8 @@ export function Sidebar({ activePage, onNavigate }: SidebarProps) {
         <span className="brand-name">Ecommerce<span>.</span></span>
       </button>
       <div className="store-switcher">
-        <div className="store-avatar">E</div>
-        <div className="store-copy"><strong>Ecommerce Goods</strong><span>ecommerce.com</span></div>
+        <div className="store-avatar">{storeName.charAt(0).toUpperCase()}</div>
+        <div className="store-copy"><strong>{storeName}</strong><span>{storeEmail}</span></div>
       </div>
       <div className="side-label">WORKSPACE</div>
       <nav className="main-nav" aria-label="Main navigation">

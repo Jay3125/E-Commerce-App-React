@@ -102,7 +102,7 @@ function App() {
 
   return (
     <div className="app-shell">
-      <Sidebar activePage={activePage} onNavigate={navigateTo} />
+      <Sidebar activePage={activePage} storeName={settings.storeName} storeEmail={settings.email} onNavigate={navigateTo} />
       <main className="main-content">
         <Header activePage={activePage} search={search} searchable={activePage !== 'Analytics' && activePage !== 'Settings'} themeMode={themeMode} onThemeModeChange={setThemeMode} onSearchChange={setSearch} onNavigate={navigateTo} />
         <div className="page-content">
